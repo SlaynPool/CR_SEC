@@ -2,7 +2,7 @@
 #include <WebServer.h>
 #define CHANNEL 5
 const char *ssid="NicolasV";
-const char *pass="27654321";
+const char *pass="12345678";
 const char *www_realm="Authentification ESP32";
 const char *www_username="Toto";
 const char *www_password="Titiri";

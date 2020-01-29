@@ -1,0 +1,2 @@
+[slaynpool@MiniZbeub]~$ echo  YWRtaW46NjIwODUxOTQ=|base64 -d 
+admin:62085194

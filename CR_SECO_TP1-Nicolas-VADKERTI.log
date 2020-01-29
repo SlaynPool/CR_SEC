@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.6)  29 JAN 2020 11:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.6)  29 JAN 2020 18:00
 entering extended mode
  \write18 enabled.
  Source specials enabled.
@@ -394,6 +394,9 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2019/09/10 1.8c listings language file
+)
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 57.
  (./code/AP_HTTPHead.ino
@@ -417,33 +420,64 @@ File: image/3.jpg Graphic file (type jpg)
 <use image/3.jpg>
 Package pdftex.def Info: image/3.jpg  used on input line 73.
 (pdftex.def)             Requested size: 140.924pt x 31.51718pt.
- (./code/hexcom.txt [1
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+
+ []
+
+(./code/compil.txt) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./image/1.jpg> <./image/2.
-jpg> <./image/3.jpg>]) (./code/result.hex)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 92.
- [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 92.
- (./CR_SECO_TP1-Nicolas-VADKERTI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 92.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 92.
-Package rerunfilecheck Info: File `CR_SECO_TP1-Nicolas-VADKERTI.out' has not ch
-anged.
-(rerunfilecheck)             Checksum: 7C4121AC65FDD6183161086822E68FAB;188.
+jpg> <./image/3.jpg>] (./code/hexcom.txt)
+(./code/result.hex) (./code/dump.txt [2]) (./code/onsaitladdresse.txt)
+(./code/erase.txt [3]) (./code/oldpPwd.txt) [4] (./code/genDico/genDico.py)
+(./code/genDico/taille.txt) [5] (./code/aircrack.txt)
+<image/5.jpg, id=255, 1292.83pt x 496.85625pt>
+File: image/5.jpg Graphic file (type jpg)
+<use image/5.jpg>
+Package pdftex.def Info: image/5.jpg  used on input line 126.
+(pdftex.def)             Requested size: 387.85199pt x 149.05801pt.
+<image/4.jpg, id=256, 1926.19624pt x 352.31625pt>
+File: image/4.jpg Graphic file (type jpg)
+<use image/4.jpg>
+Package pdftex.def Info: image/4.jpg  used on input line 134.
+(pdftex.def)             Requested size: 481.54788pt x 88.07884pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 123--140
+
+ []
+
+(./code/base64.txt) [6 <./image/5.jpg> <./image/4.jpg>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 146.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 146.
+
+(./CR_SECO_TP1-Nicolas-VADKERTI.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 146.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 146.
+
+
+Package rerunfilecheck Warning: File `CR_SECO_TP1-Nicolas-VADKERTI.out' has cha
+nged.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `CR_SECO_TP1-Nicolas-VADKERTI.out':
+(rerunfilecheck)             Before: 7C4121AC65FDD6183161086822E68FAB;188
+(rerunfilecheck)             After:  C6A71CD88921C7DB7CC5CDADABDFDDD8;893.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 146.
  ) 
 Here is how much of TeX's memory you used:
- 9048 strings out of 492167
- 129249 string characters out of 6131559
- 832898 words of memory out of 5000000
- 13260 multiletter control sequences out of 15000+600000
+ 9354 strings out of 492167
+ 133163 string characters out of 6131559
+ 920241 words of memory out of 5000000
+ 13348 multiletter control sequences out of 15000+600000
  9270 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,7n,51p,286b,2161s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,8n,60p,668b,2147s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
@@ -454,10 +488,10 @@ ist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1
 /cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb></usr/
 share/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on CR_SECO_TP1-Nicolas-VADKERTI.pdf (2 pages, 189624 bytes).
+Output written on CR_SECO_TP1-Nicolas-VADKERTI.pdf (7 pages, 405221 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
- 58 named destinations out of 1000 (max. 500000)
- 40 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 389 PDF objects out of 1000 (max. 8388607)
+ 360 compressed objects within 4 object streams
+ 244 named destinations out of 1000 (max. 500000)
+ 50 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,8 @@
+[slaynpool@MiniZbeub]~$ sudo ifconfig wlp1s0 down
+[slaynpool@MiniZbeub]~$ sudo iwconfig wlp1s0 mode monitor 
+[slaynpool@MiniZbeub]~$ sudo ifconfig wlp1s0 up
+[slaynpool@MiniZbeub]~$ echo "On passe la carte Wifi en mode monitor"
+On passe la carte Wifi en mode monitor
+[slaynpool@MiniZbeub]~$ echo "On fais une capture de trame sur Wireshark que l'on enregistre"
+On fais une capture de trame sur Wireshark que l'on enregistre
+

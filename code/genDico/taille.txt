@@ -1,0 +1,18 @@
+genDico$ sl
+total 16M
+drwxr-xr-x 2 slaynpool slaynpool 4,0K janv. 29 15:10 .
+drwxr-xr-x 4 slaynpool slaynpool 4,0K janv. 29 14:58 ..
+-rw-r--r-- 1 slaynpool slaynpool  16M janv. 29 15:38 dico.txt
+-rw-r--r-- 1 slaynpool slaynpool 1,2K janv. 29 15:38 genDico.py
+[slaynpool@MiniZbeub]genDico$ head dico.txt
+01234567
+01234568
+01234569
+01234576
+01234578
+01234579
+01234586
+01234587
+01234589
+01234596
+

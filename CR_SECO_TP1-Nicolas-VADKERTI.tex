@@ -99,10 +99,48 @@ Buddy ma fourni son binaire qui tourne sur son ESP. Grace à Hexdump nous avons 
  \subsection{Remise à Zero de la memoire flash de L'ESP32}
  Pour cela il suffit d'utiliser la commande suivante:
  \insertcode{code/erase.txt}{esptool.py erase flash}
- On
+ On voit que la commande a correctement fonctionner car quand nous lisons la memoire de la carte, nous n'avons que des ``ff''
  
+ \subsection{L'historique des anciens programmes restes sur L'ESP32}
+ 
+ En Effet, si on compile/téléverse le programes plusieurs fois sur la carte, tous en modifiant le mots de passe de l'AP par exemple( 87654321, 17654321, 27654321), on se rend compte que les anciens MDP sont encore visibles:
+ \insertcode{code/oldpPwd.txt}{On voit les anciens PWD}
+ On peut donc voir que le Premier MDP est stocké à l'adresse 0x0a540\\
+ Le second MDP est stocké à l'adresse 0x0a8e0\\
+ Le mots de passe actuelle est stocké à l'adresse 0x0ac80 et l'ancienne adresse 0x011180
+ \newpage
+ \section{Attaques en fonctionnement à distance}
+ \subsection{Creation d'un dictionnaire}
+ On veut créer un dictonnaire contenant chaques mdp avec que des chiffres, sans doublons:
+ \insertcode{code/genDico/genDico.py}{Mon générateur de dictionnaire}
+Le dictionnaire généré semble etre de la taille que vous nous avez indiquez et semble générer les bons nombres
+\insertcode{code/genDico/taille.txt}{Mon dictionnaire}\newpage
+\subsection{Utilisation de aircrack-ng sur le fichier ap1.pcap}
+On utilise aircrack-ng comme ceci :
+\insertcode{code/aircrack.txt}{aircrack}
+Nous avons donc reussi à obtenir la clé de l'AP et celle-ci est ``54921037`` !!!!
+\subsection{Décodage de trame http}
+Nous avons trouvé la clé du reseau précedament, il faut donc que WireShark la connaisse pour pouvoir déchiffré les trames:
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.30]{image/5.jpg}
+\caption{Ajoute de la Clé dans wireshark}
+\label{fig:net }
+\end{figure}
+A partir de là, nous somme donc capable d'interpréter les trames et donc les trames http :
+On choisis une trame GET/login:
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.250]{image/4.jpg}
+\caption{Ajoute de la Clé dans wireshark}
+\label{fig:net }
+\end{figure}
+\\
+Donc on sait que c'est du base64\\
+\insertcode{code/base64.txt}{Decodage du base 64}
+Le couple USER/PWD est admin/62085194
 
-
+\subsection{Realisation de la manip sur la puce de mon voisin}
 
 
 \end{document}
