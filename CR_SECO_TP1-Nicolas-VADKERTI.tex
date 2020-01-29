@@ -1,4 +1,4 @@
-
+﻿
 \documentclass[10pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
@@ -49,14 +49,40 @@ tabsize=2
 \begin{document}
 
 \maketitle
-
-
 \url{https://github.com/SlaynPool/CR_SECO/}
+\section{Attaques hors ligne}
 
+\subsection{AP HTTP}
+On recupere le fichier .ino disponible sur moodle, on modifie les parametres de l'application comme ceci:
+\insertcode{code/AP_HTTPHead.ino}{Modification du .ino}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.20]{image/1.jpg}
+\caption{Premier Page}
+\label{fig:net }
+\end{figure}
 
+ \begin{figure}[h!]
+\centering
+\includegraphics[scale=0.20]{image/2.jpg}
+\caption{Connection }
+\label{fig:net }
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.20]{image/3.jpg}
+\caption{Reussite }
+\label{fig:net }
+\end{figure}
+\subsection{Fouille du .bin de mon voisin}
+Buddy ma fourni son binaire qui tourne sur son ESP. Grace à Hexdump nous avons converti le binnaire en caractère lisible:
+\insertcode{code/hexcom.txt}{traduction}
 
- 
- 
+ On voit que quand je cherche le mot SSID, il me repond que ce mots existe à la ligne 00001110. Nous regardons donc a cette ligne pour voir si il ya pas des mots de passes à proximité de la déclaration du SSID et :
+ \insertcode{code/result.hex}{On a trouvé !}
+ On comprend rapidement que le premier mots de passes que l'on semble voir est le mots de passes de l'authentification WEB, notament car ``buddy'' n'est pas le SSID que je vois depuis ma carte Wifi mais plutot ``cestquoilecode''
+ Donc on déduis grâce au binaire que on pourra passer l'authentification Web grâce au couple User/PWD : buddy/98765432\\
+ Et le Mot de passe du reseau Wifi : 23456789
  
  
 
