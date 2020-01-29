@@ -1,0 +1,23 @@
+code$ esptool.py read_flash 0x0 400000 AP_HTTP1_dump300.bin 
+esptool.py v2.8
+Found 2 serial ports
+Serial port /dev/ttyUSB0
+Connecting......
+Detecting chip type... ESP32
+Chip is ESP32D0WDQ5 (revision 1)
+Features: WiFi, BT, Dual Core, Coding Scheme None
+Crystal is 40MHz
+MAC: 24:0a:c4:1d:46:94
+Uploading stub...
+Running stub...
+Stub running...
+400000 (100 %)
+400000 (100 %)
+Read 400000 bytes at 0x0 in 36.0 seconds (88.8 kbit/s)...
+Hard resetting via RTS pin...
+[slaynpool@MiniZbeub]code$ hexdump -C AP_HTTP1_dump300.bin |grep 7654321
+0000a540  38 37 36 35 34 33 32 31  00 00 00 00 00 00 00 00  |87654321........|
+0000a8e0  31 37 36 35 34 33 32 31  00 00 00 00 00 00 00 00  |17654321........|
+0000ac80  32 37 36 35 34 33 32 31  00 00 00 00 00 00 00 00  |27654321........|
+00011180  33 32 00 32 37 36 35 34  33 32 31 00 4e 69 63 6f  |32.27654321.Nico|
+

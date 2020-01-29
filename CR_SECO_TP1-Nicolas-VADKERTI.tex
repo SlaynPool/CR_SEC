@@ -16,7 +16,7 @@
 \definecolor{highlight}{RGB}{255,251,204} % Code highlight color
 
 \lstdefinestyle{Style1}{ % Define a style for your code snippet, multiple definitions can be made if, for example, you wish to insert multiple code snippets using different programming languages into one document
-language=Perl, % Detects keywords, comments, strings, functions, etc for the language specified
+language=Bash, % Detects keywords, comments, strings, functions, etc for the language specified
 backgroundcolor=\color{highlight}, % Set the background color for the snippet - useful for highlighting
 basicstyle=\footnotesize\ttfamily, % The default font size and style of the code
 breakatwhitespace=false, % If true, only allows line breaks at white space
@@ -75,6 +75,10 @@ On recupere le fichier .ino disponible sur moodle, on modifie les parametres de 
 \label{fig:net }
 \end{figure}
 \subsection{Fouille du .bin de mon voisin}
+Voici la ligne de compilation executer par l'IDE: \\
+\insertcode{code/compil.txt}{compilation}
+
+Le fichier .bin est generer dans  tmp arduino build 64730
 Buddy ma fourni son binaire qui tourne sur son ESP. Grace à Hexdump nous avons converti le binnaire en caractère lisible:
 \insertcode{code/hexcom.txt}{traduction}
 
@@ -84,6 +88,18 @@ Buddy ma fourni son binaire qui tourne sur son ESP. Grace à Hexdump nous avons 
  Donc on déduis grâce au binaire que on pourra passer l'authentification Web grâce au couple User/PWD : buddy/98765432\\
  Et le Mot de passe du reseau Wifi : 23456789
  
+ \subsection{Dump d'un binaire depuis une carte}
+ J'ai echangé mon ESP32 avec Buddy. Je m'attend donc à obtenir le même resultat que précedement.\\
+ Pour dumper la memoire d'un ESP32, nous allons utiliser la commande suivante :
+ \insertcode{code/dump.txt}{Dump de la memoire flash d'un ESP}
+ On determine L'OFFSET  grace à cette ligne vu dans l'arduino IDE:
+ \insertcode{code/onsaitladdresse.txt}{Compilation}
+ Le binaire sera donc ecrit à partir de l'adresse 0x10000 donc on regarde directement à l'adresse 0x10000+0x1110 soit 0x11110 
+
+ \subsection{Remise à Zero de la memoire flash de L'ESP32}
+ Pour cela il suffit d'utiliser la commande suivante:
+ \insertcode{code/erase.txt}{esptool.py erase flash}
+ On
  
 
 

@@ -2,10 +2,10 @@
 #include <WebServer.h>
 #define CHANNEL 5
 const char *ssid="NicolasV";
-const char *pass="87654321";
+const char *pass="27654321";
 const char *www_realm="Authentification ESP32";
 const char *www_username="Toto";
-const char *www_password="Totoro";
+const char *www_password="Titiri";
 IPAddress ip(192,168,42,1);
 IPAddress gateway(192,168,42,254);
 IPAddress subnet(255,255,255,0);
