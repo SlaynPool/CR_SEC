@@ -196,8 +196,27 @@ On Brute force avec mon programme python en modifiant les variables par celle tr
 \insertcode{manip/puce/digest_authAP2.py}{Le code est 65983241}
 Donc, nous savons à present que le mot de passe nessacaire pour ce connecter à l'AP est : 61495327\\
 Le nom d'utilisateur est : john (On le sais grace à la trame HTTP)\\
-Et que le mot de passe de john est : 65983241 \\
+Et que le mot de passe de john est : 65983241 
 
+On peut donc ce connecter :
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.250]{image/11.jpg}
+\caption{Site Web}
+\label{fig:net }
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.250]{image/10.jpg}
+\caption{Site Web sécurisé}
+\label{fig:net }
+\end{figure}\\
+\newpage
+\section{Manipulation sur un site HTTPS}
+On récuperé la capture de trame, et nous utilisons Aircrack pour déterminer la clé Wifi
+\insertcode{https/aircrack}{Clé wifi}
+Le Pass Wifi est donc: 53027819
+On configure Wireshark pour qu'il comprenne les trames, puis avec le Pre-Master-Secret
 
 
 \end{document}

@@ -775,4 +775,68 @@ celle trouvé dans la capture:
 Donc, nous savons à present que le mot de passe nessacaire pour ce
 connecter à l'AP est : 61495327\
 Le nom d'utilisateur est : john (On le sais grace à la trame HTTP)\
-Et que le mot de passe de john est : 65983241\
+Et que le mot de passe de john est : 65983241
+
+On peut donc ce connecter :
+
+![Site Web[]{label="fig:net "}](image/11.jpg){#fig:net }
+
+![Site Web sécurisé[]{label="fig:net "}](image/10.jpg){#fig:net }
+
+\
+
+Manipulation sur un site HTTPS
+==============================
+
+On récuperé la capture de trame, et nous utilisons Aircrack pour
+déterminer la clé Wifi
+
+-   ``` {#https/aircrack caption="Clé wifi" label="https/aircrack" style="Style1"}
+    [slaynpool@MiniZbeub]https$ aircrack-ng -w dico.txt ap3-https.pcap 
+    Reading packets, please wait...
+    Opening ap3-https.pcap
+    Read 1808 packets.
+
+       #  BSSID              ESSID                     Encryption
+
+       1  00:12:44:B1:AE:43  IUTBEZIERS                Unknown
+       2  00:12:44:B1:AE:45  eduroam                   Unknown
+       3  00:12:44:B1:AE:46                            Unknown
+       4  00:3A:9A:20:ED:F0                            Unknown
+       5  00:3A:9A:24:58:E0                            Unknown
+       6  00:3A:9A:24:5B:50                            Unknown
+       7  24:0A:C4:11:03:11  HackMe                    WPA (1 handshake)
+       8  68:A3:78:69:C9:92  freebox_DXZNQP            Unknown
+       9  68:A3:78:69:C9:93  FreeWifi                  Unknown
+      10  68:A3:78:69:C9:94  FreeWifi_secure           Unknown
+
+    Index number of target network ? 7
+
+    Reading packets, please wait...
+    Opening ap3-https.pcap
+    Read 1808 packets.
+
+    1 potential targets
+
+                             Aircrack-ng 1.6 rev e708c21e
+
+          [00:02:04] 1007584/1814400 keys tested (8289.37 k/s) 
+
+          Time left: 1 minute, 37 seconds                           55.53%
+
+                               KEY FOUND! [ 53027819 ]
+
+
+          Master Key     : 94 C6 1C CF BD 3E 0B A5 48 51 66 85 84 FE 58 36 
+                           29 0A 6F 50 7E 75 57 27 4C C8 20 40 50 C5 8D 36 
+
+          Transient Key  : AF C3 DE 72 2F A6 0E 05 E1 A0 CB F5 5B 5B 55 5C 
+                           0A 6E 3E 47 51 94 1F E5 33 85 1C 35 E9 7F EF CF 
+                           25 14 67 F5 13 36 69 1F 9F 9D 5C 3C ED 48 41 32 
+                           32 DF 9C D6 C0 CD 3F 2F 87 F5 B0 1C 84 F9 16 AE 
+
+          EAPOL HMAC     : 25 E5 81 53 64 EA 0F 39 37 25 5C 5E 3D 23 10 08 
+    ```
+
+Le Pass Wifi est donc: 53027819 On configure Wireshark pour qu'il
+comprenne les trames, puis avec le Pre-Master-Secret

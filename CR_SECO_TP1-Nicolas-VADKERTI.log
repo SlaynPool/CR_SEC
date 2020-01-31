@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.6)  31 JAN 2020 17:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.6)  31 JAN 2020 17:53
 entering extended mode
  \write18 enabled.
  Source specials enabled.
@@ -279,6 +279,15 @@ LaTeX Warning: Label `fig:net ' multiply defined.
 
 LaTeX Warning: Label `fig:net ' multiply defined.
 
+
+LaTeX Warning: Label `fig:net ' multiply defined.
+
+
+LaTeX Warning: Label `fig:net ' multiply defined.
+
+
+LaTeX Warning: Label `fig:net ' multiply defined.
+
 )
 \openout1 = `CR_SECO_TP1-Nicolas-VADKERTI.aux'.
 
@@ -414,17 +423,17 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 2.
 (/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ))
-<image/1.jpg, id=57, 480.79625pt x 148.555pt>
+<image/1.jpg, id=61, 480.79625pt x 148.555pt>
 File: image/1.jpg Graphic file (type jpg)
 <use image/1.jpg>
 Package pdftex.def Info: image/1.jpg  used on input line 60.
 (pdftex.def)             Requested size: 96.15753pt x 29.71046pt.
-<image/2.jpg, id=58, 794.97pt x 271.0125pt>
+<image/2.jpg, id=62, 794.97pt x 271.0125pt>
 File: image/2.jpg Graphic file (type jpg)
 <use image/2.jpg>
 Package pdftex.def Info: image/2.jpg  used on input line 67.
 (pdftex.def)             Requested size: 158.99118pt x 54.20152pt.
-<image/3.jpg, id=59, 704.6325pt x 157.58875pt>
+<image/3.jpg, id=63, 704.6325pt x 157.58875pt>
 File: image/3.jpg Graphic file (type jpg)
 <use image/3.jpg>
 Package pdftex.def Info: image/3.jpg  used on input line 73.
@@ -441,12 +450,12 @@ jpg> <./image/3.jpg>] (./code/hexcom.txt)
 (./code/result.hex) (./code/dump.txt [2]) (./code/onsaitladdresse.txt)
 (./code/erase.txt [3]) (./code/oldpPwd.txt) [4] (./code/genDico/genDico.py)
 (./code/genDico/taille.txt) [5] (./code/aircrack.txt)
-<image/5.jpg, id=290, 1292.83pt x 496.85625pt>
+<image/5.jpg, id=294, 1292.83pt x 496.85625pt>
 File: image/5.jpg Graphic file (type jpg)
 <use image/5.jpg>
 Package pdftex.def Info: image/5.jpg  used on input line 126.
 (pdftex.def)             Requested size: 387.85199pt x 149.05801pt.
-<image/4.jpg, id=291, 1926.19624pt x 352.31625pt>
+<image/4.jpg, id=295, 1926.19624pt x 352.31625pt>
 File: image/4.jpg Graphic file (type jpg)
 <use image/4.jpg>
 Package pdftex.def Info: image/4.jpg  used on input line 134.
@@ -458,21 +467,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--140
 
 (./code/base64.txt) [6 <./image/5.jpg> <./image/4.jpg>] (./code/ChannelWant)
 (./code/confWifi) (./code/manipBuddy [7])
-<image/6.jpg, id=384, 1901.1025pt x 476.78125pt>
+<image/6.jpg, id=388, 1901.1025pt x 476.78125pt>
 File: image/6.jpg Graphic file (type jpg)
 <use image/6.jpg>
 Package pdftex.def Info: image/6.jpg  used on input line 155.
 (pdftex.def)             Requested size: 475.27446pt x 119.195pt.
  [8 <./image/6.jpg>]
 (./manip/digest_auth.sh) (./code/manipAP2I) [9]
-<image/7.jpg, id=499, 1902.10625pt x 851.18pt>
+<image/7.jpg, id=503, 1902.10625pt x 851.18pt>
 File: image/7.jpg Graphic file (type jpg)
 <use image/7.jpg>
 Package pdftex.def Info: image/7.jpg  used on input line 169.
 (pdftex.def)             Requested size: 475.5254pt x 212.79446pt.
  (./manip/digest_authAP2.py)
 [10 <./image/7.jpg>] (./code/puce/1)
-<image/8.jpg, id=541, 1039.885pt x 217.81375pt>
+<image/8.jpg, id=545, 1039.885pt x 217.81375pt>
 File: image/8.jpg Graphic file (type jpg)
 <use image/8.jpg>
 Package pdftex.def Info: image/8.jpg  used on input line 182.
@@ -483,22 +492,38 @@ Overfull \hbox (36.24435pt too wide) in paragraph at lines 182--183
  []
 
 (./code/puce/2 [11 <./image/8.jpg>])
-<image/9.jpg, id=597, 1903.11pt x 873.2625pt>
+<image/9.jpg, id=600, 1903.11pt x 873.2625pt>
 File: image/9.jpg Graphic file (type jpg)
 <use image/9.jpg>
 Package pdftex.def Info: image/9.jpg  used on input line 191.
 (pdftex.def)             Requested size: 475.77634pt x 218.31508pt.
  (./manip/puce/digest_authAP2.py [12 <./image/9.jpg>])
-Underfull \hbox (badness 10000) in paragraph at lines 197--200
+<image/11.jpg, id=650, 1084.05pt x 569.12625pt>
+File: image/11.jpg Graphic file (type jpg)
+<use image/11.jpg>
+Package pdftex.def Info: image/11.jpg  used on input line 204.
+(pdftex.def)             Requested size: 271.01184pt x 142.2812pt.
+<image/10.jpg, id=651, 1079.03125pt x 620.3175pt>
+File: image/10.jpg Graphic file (type jpg)
+<use image/10.jpg>
+Package pdftex.def Info: image/10.jpg  used on input line 210.
+(pdftex.def)             Requested size: 269.75716pt x 155.079pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--214
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 203.
-[13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 203.
- (./CR_SECO_TP1-Nicolas-VADKERTI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 203.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 203.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[13 <./image/11.jpg>] (./https/aircrack)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 222.
+ [14 <./image/10.jpg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 222.
+
+(./CR_SECO_TP1-Nicolas-VADKERTI.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 222.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 222.
 
 
 Package rerunfilecheck Warning: File `CR_SECO_TP1-Nicolas-VADKERTI.out' has cha
@@ -507,18 +532,18 @@ nged.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `CR_SECO_TP1-Nicolas-VADKERTI.out':
-(rerunfilecheck)             Before: 098DE058B86ECA23DC748E74A469E55A;1122
-(rerunfilecheck)             After:  3A9CC9D29A83688425D703814DF0FDC2;1220.
+(rerunfilecheck)             Before: 3A9CC9D29A83688425D703814DF0FDC2;1220
+(rerunfilecheck)             After:  E03477655FB6E2C97428AC25454A29D8;1286.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 203.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 222.
  ) 
 Here is how much of TeX's memory you used:
- 9999 strings out of 492167
- 141486 string characters out of 6131559
- 920926 words of memory out of 5000000
- 13631 multiletter control sequences out of 15000+600000
+ 10078 strings out of 492167
+ 142524 string characters out of 6131559
+ 921082 words of memory out of 5000000
+ 13656 multiletter control sequences out of 15000+600000
  9270 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,8n,60p,668b,2149s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -533,10 +558,10 @@ ist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/tex
 mf-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb></usr/share/texmf-dis
 t/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on CR_SECO_TP1-Nicolas-VADKERTI.pdf (13 pages, 1173490 bytes).
+Output written on CR_SECO_TP1-Nicolas-VADKERTI.pdf (14 pages, 1271549 bytes).
 PDF statistics:
- 846 PDF objects out of 1000 (max. 8388607)
- 801 compressed objects within 9 object streams
- 574 named destinations out of 1000 (max. 500000)
- 150 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 913 PDF objects out of 1000 (max. 8388607)
+ 865 compressed objects within 9 object streams
+ 623 named destinations out of 1000 (max. 500000)
+ 168 words of extra memory for PDF output out of 10000 (max. 10000000)
 
