@@ -1,0 +1,28 @@
+
+
+
+
+
+
+
+
+[slaynpool@MiniZbeub]SECO$ sudo iw wlp1s0 info
+Interface wlp1s0
+	ifindex 2
+	wdev 0x1
+	addr 52:94:ce:54:40:2d
+	type monitor
+	wiphy 0
+	channel 1 (2412 MHz), width: 20 MHz (no HT), center1: 2412 MHz
+	txpower 17.00 dBm
+[slaynpool@MiniZbeub]SECO$ sudo iw wlp1s0 set channel 5
+[slaynpool@MiniZbeub]SECO$ sudo iw wlp1s0 info
+Interface wlp1s0
+	ifindex 2
+	wdev 0x1
+	addr 52:94:ce:54:40:2d
+	type monitor
+	wiphy 0
+	channel 5 (2432 MHz), width: 20 MHz (no HT), center1: 2432 MHz
+	txpower 17.00 dBm
+

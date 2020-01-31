@@ -141,6 +141,28 @@ Donc on sait que c'est du base64\\
 Le couple USER/PWD est admin/62085194
 
 \subsection{Realisation de la manip sur la puce de mon voisin}
+Tout d'abord, on veut savoir quelle channel utilise notre voisin. Son reseau s'appelle ''cestquoilecode``.
+\insertcode{code/ChannelWant}{Determination de la bande de son voisin}
+On configure donc notre carte sur le chanel 5 et on passe en mode monitor.
+\insertcode{code/confWifi}{Configuration de la carte wifi}
+J'ai donc fais une capture de trame en demandant à Buddy de se connecter à l'AP, pour qu'il génére le HandShake et qu'il soit visibles dans ma capture. Le problème à etait que je n'ai pas vu le handshake complet. J'ai donc changé de carte Wifi et fais et bien récupérer le HandShake, lancé AirCrack-ng et Bingo :
+
+\insertcode{code/manipBuddy}{On à reussi}
+On indique donc maintenant à Wireshark la clé pour qu'il puisse décrypter les trames.
+NOTE IMPORTANTE: Pour pouvoir décrypter les trames HTTP, on doit avoir l'intergalité de la connection, CàD, le HandShake, et les trames HTTP.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.250]{image/6.jpg}
+\caption{On a trouvé l'identification HTTP}
+\label{fig:net }
+\end{figure}
+\newpage
+\subsection{Verification de la validité d'un couple USER/PWD}
+En ce basant sur le cours et la page Wikipedia fourni, voici mon ''programe``:
+\insertcode{code/AuthDigest/digest_auth.sh}{Digest Auth }
+\subsection{Détérmination du mots de passe de l'utilisateur dans le fichier ap2.pcap}
+Tous d'abord, on doit trouver le mots de passes de l'AP :
+\insertcode{code/manipAP2I}{71862093}
 
 
 \end{document}

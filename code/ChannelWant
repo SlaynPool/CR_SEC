@@ -1,0 +1,23 @@
+[slaynpool@MiniZbeub]code$ sudo iw wlp1s0 scan |grep cestquoi -B 10 -A 10
+		 * VO: CW 3-7, AIFSN 2, TXOP 1504 usec
+BSS 24:0a:c4:1d:2b:39(on wlp1s0)
+	last seen: 1766.146s [boottime]
+	TSF: 72585078 usec (0d, 00:01:12)
+	freq: 2432
+	beacon interval: 100 TUs
+	capability: ESS Privacy ShortPreamble ShortSlotTime (0x0431)
+	signal: -34.00 dBm
+	last seen: 590 ms ago
+	Information elements from Probe Response frame:
+	SSID: cestquoilecode
+	Supported rates: 5.5* 11.0* 1.0* 2.0* 6.0 12.0 24.0 48.0 
+	Extended supported rates: 54.0 9.0 18.0 36.0 
+	DS Parameter set: channel 5   <----------------
+	Country: CN	Environment: bogus
+		Channels [1 - 13] @ 20 dBm
+	RSN:	 * Version: 1
+		 * Group cipher: TKIP
+		 * Pairwise ciphers: CCMP TKIP
+		 * Authentication suites: PSK
+		 * Capabilities: 1-PTKSA-RC 1-GTKSA-RC (0x0000)
+

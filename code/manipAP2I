@@ -1,0 +1,42 @@
+[slaynpool@MiniZbeub]manip$ aircrack-ng -w dico.txt ap2.pcap 
+Reading packets, please wait...
+Opening ap2.pcap
+Read 947 packets.
+
+   #  BSSID              ESSID                     Encryption
+
+   1  00:07:CB:02:BE:00  freebox_102030            Unknown
+   2  00:07:CB:02:BE:01  FreeWifi                  Unknown
+   3  00:07:CB:02:BE:02  FreeWifi_secure           Unknown
+   4  24:0A:C4:11:03:11  HackMe                    WPA (1 handshake)
+   5  A8:A7:95:AE:62:AB  DIRECT-AB-HP BU           Unknown
+
+Index number of target network ? 4
+
+Reading packets, please wait...
+Opening ap2.pcap
+Read 947 packets.
+
+1 potential targets
+
+
+
+                         Aircrack-ng 1.6 rev e708c21e
+
+      [00:02:38] 1287872/1814400 keys tested (8276.71 k/s) 
+
+      Time left: 1 minute, 3 seconds                            70.98%
+
+                           KEY FOUND! [ 71862093 ]
+
+
+      Master Key     : 66 04 EC 8D FB 55 CC 19 68 6C 73 53 4B 58 29 28 
+                       C4 49 E1 72 8B 22 FC 31 FD 01 13 00 95 0F 1A AB 
+
+      Transient Key  : 63 1D 76 5F E3 68 6A 22 E4 23 46 08 BD 4A 2C 33 
+                       48 15 32 B8 A0 E8 A6 6F FD 60 3C 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+      EAPOL HMAC     : A2 CA 6F 69 CB D9 86 80 E3 EC 64 01 D1 47 71 12 
+
