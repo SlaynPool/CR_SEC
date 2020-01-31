@@ -159,11 +159,44 @@ NOTE IMPORTANTE: Pour pouvoir décrypter les trames HTTP, on doit avoir l'interg
 \newpage
 \subsection{Verification de la validité d'un couple USER/PWD}
 En ce basant sur le cours et la page Wikipedia fourni, voici mon ''programe``:
-\insertcode{code/AuthDigest/digest_auth.sh}{Digest Auth }
+\insertcode{manip/digest_auth.sh}{Digest Auth }
 \subsection{Détérmination du mots de passe de l'utilisateur dans le fichier ap2.pcap}
 Tous d'abord, on doit trouver le mots de passes de l'AP :
 \insertcode{code/manipAP2I}{71862093}
-
+On peut ainsi récuperer les informations de connactions dans la trame de connection:
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.250]{image/7.jpg}
+\caption{Ajoute de la Clé dans wireshark}
+\label{fig:net }
+\end{figure}
+Nous avons donc toutes les informations pour brute Force le mot de passe. Nous allons utiliser le meme code qui vérifier la validité du mot de passe réecrie en Python pour des raisons de rapidités:
+\insertcode{manip/digest_authAP2.py}{digest authentification python}
+\newpage
+\subsection{Reproduction sur une vrai puce en fonctionnement}
+Donc on determine le channel de la puce et on configure notre carte wifi en mode monitor sur le bon channel:
+\insertcode{code/puce/1}{Setup}
+On fait une capture de trame pendant une connexion à l'AP et au site sécuriser, au moins nous n'aurons pas à refaire de capture de trame:
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.500]{image/8.jpg}
+\caption{Capture}
+\label{fig:net }
+\end{figure}
+On utilise AirCrack-ng:
+\insertcode{code/puce/2}{AirCrack}
+On décrypte les trames avec wireshark :
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.250]{image/9.jpg}
+\caption{Trame HTTP}
+\label{fig:net }
+\end{figure}
+On Brute force avec mon programme python en modifiant les variables par celle trouvé dans la capture:
+\insertcode{manip/puce/digest_authAP2.py}{Le code est 65983241}
+Donc, nous savons à present que le mot de passe nessacaire pour ce connecter à l'AP est : 61495327\\
+Le nom d'utilisateur est : john (On le sais grace à la trame HTTP)\\
+Et que le mot de passe de john est : 65983241 \\
 
 \end{document}
 

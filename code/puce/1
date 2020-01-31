@@ -1,0 +1,35 @@
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# ifconfig wlp0s20f0u1u1u2 down 
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# iwconfig wlp0s20f0u1u1u2 mode managed
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# ifconfig wlp0s20f0u1u1u2 up 
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# iw wlp0s20f0u1u1u2 scan |grep cbIDO2 -B 10 -A 15
+		 * VI: CW 7-15, AIFSN 2, TXOP 3008 usec
+		 * VO: CW 3-7, AIFSN 2, TXOP 1504 usec
+BSS 5e:cf:7f:1b:74:2f(on wlp0s20f0u1u1u2)
+	TSF: 13731867829 usec (0d, 03:48:51)
+	freq: 2422
+	beacon interval: 100 TUs
+	capability: ESS Privacy (0x0011)
+	signal: -45.00 dBm
+	last seen: 760 ms ago
+	Information elements from Probe Response frame:
+	SSID: cbIDO2
+	Supported rates: 5.5* 11.0* 1.0* 2.0* 6.0 12.0 24.0 48.0 
+	DS Parameter set: channel 3
+	Country: CN	Environment: bogus
+		Channels [1 - 13] @ 20 dBm
+	Extended supported rates: 54.0 9.0 18.0 36.0 
+	RSN:	 * Version: 1
+		 * Group cipher: TKIP
+		 * Pairwise ciphers: CCMP TKIP
+		 * Authentication suites: PSK
+		 * Capabilities: 1-PTKSA-RC 1-GTKSA-RC (0x0000)
+BSS 24:0a:c4:1d:3a:d9(on wlp0s20f0u1u1u2)
+	TSF: 3423258760 usec (0d, 00:57:03)
+	freq: 2457
+	beacon interval: 100 TUs
+	capability: ESS Privacy ShortPreamble ShortSlotTime (0x0431)
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# ifconfig wlp0s20f0u1u1u2 down 
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# iwconfig wlp0s20f0u1u1u2 mode monitor
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# ifconfig wlp0s20f0u1u1u2 up 
+[root@MiniZbeub]/home/slaynpool/Documents/IDO/SECO/manip# iw wlp0s20f0u1u1u2 set channel 3
+
